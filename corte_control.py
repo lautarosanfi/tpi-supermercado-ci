@@ -9,7 +9,9 @@ CAMPOS_REQUERIDOS = ("PRSUC", "PRCOD", "PRCANT", "PRPRE")
 
 
 def moneda(x):
-    return f"${x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    # Cambio intencional para simular un error: se pierde el formato argentino
+    # (separador de miles "." y decimales ",") que los tests esperan.
+    return f"${x:,.2f}"
 
 
 def resolver_path(nombre_archivo):
